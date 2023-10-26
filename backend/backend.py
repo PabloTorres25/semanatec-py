@@ -20,7 +20,20 @@ def predict_json():
         data["alcohol"]
         ]
     y_pred = dt.predict(X)
-    print(y_pred)
+    # print(y_pred)
+    return jsonify({"result": y_pred[0]})
+
+# Lo sacamos de form en ves de de json
+@app.route("/predict_form", method=["POST"])
+def predict_form():
+    data = request.form
+    X = [
+        data["pH"],
+        data["sulphates"],
+        data["alcohol"]
+        ]
+    y_pred = dt.predict(X)
+    # print(y_pred)
     return jsonify({"result": y_pred[0]})
 
 if __name =="__main__":
