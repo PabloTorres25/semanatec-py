@@ -15,10 +15,13 @@ def inicio():
 def predict_json():
     data = request.json
     X = [
-    data["pH"],
-    data["sulphates"],
-    data["alcohol"]
-    ]
+        data["pH"],
+        data["sulphates"],
+        data["alcohol"]
+        ]
+    y_pred = dt.predict(X)
+    print(y_pred)
+    return jsonify({"result": y_pred[0]})
 
 if __name =="__main__":
     app.run (host="0.0.0.0", debug =False, port=8081)
