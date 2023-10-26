@@ -54,6 +54,9 @@ def predict_file():
             #X.append([float(row[0], float(row[1], float(row[2])))])
             X = [[float(row[0]), float(row[1]), float(row[2])] for row in reader]
             y_pred = dt.predict(x)
+            return jsonify({
+                "result": []
+            })
 
 if __name =="__main__":
     app.run (host="0.0.0.0", debug =False, port=8081)
