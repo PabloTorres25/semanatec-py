@@ -8,3 +8,7 @@ python3 -m venv .venv
 pip install flask
 pip install flask_cors
 pip install scikit-learn
+
+## Extensiones
+Extensión parecida a postman (Thunder Client)
+rangav.vscode-thunder-client
