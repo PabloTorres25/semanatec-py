@@ -48,8 +48,12 @@ def predict_file():
     path = os.path.join(os.getcwd(), "static", filename)
     file.save(path)
     with open(path, "r") as f:
-        reader = csv.DictReader(f)
-
+        reader = csv.reader(f)
+        X = []
+        for row in reader:
+            #X.append([float(row[0], float(row[1], float(row[2])))])
+            X = [[float(row[0]), float(row[1]), float(row[2])] for row in reader]
+            y_pred = dt.predict(x)
 
 if __name =="__main__":
     app.run (host="0.0.0.0", debug =False, port=8081)
