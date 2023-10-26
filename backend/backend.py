@@ -55,7 +55,8 @@ def predict_file():
             X = [[float(row[0]), float(row[1]), float(row[2])] for row in reader]
             y_pred = dt.predict(x)
             return jsonify({
-                "result": []
+                "result": [{"key": f"{k}",
+                            "result": f"{v}"} for k, v in enumerate (y_pred)]
             })
 
 if __name =="__main__":
