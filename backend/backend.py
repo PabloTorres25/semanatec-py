@@ -14,7 +14,11 @@ def inicio():
 @app.route("/predict_json", methods=["POST"])
 def predict_json():
     data = request.json
-
+    X = [
+    data["pH"],
+    data["sulphates"],
+    data["alcohol"]
+    ]
 
 if __name =="__main__":
     app.run (host="0.0.0.0", debug =False, port=8081)
