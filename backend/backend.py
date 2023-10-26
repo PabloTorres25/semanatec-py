@@ -1,6 +1,8 @@
 from flask import Flask, request
-from faslk_cors import CORS
+from flask_cors import CORS
 import joblib
+
+dt = joblib.load("/static/dt.joblib")
 
 app = Flask(__name__)
 
