@@ -48,6 +48,7 @@ def predict_file():
     path = os.path.join(os.getcwd(), "static", filename)
     file.save(path)
     with open(path, "r") as f:
+        f.readline()
         reader = csv.reader(f)
         # X = []
         # for row in reader:
