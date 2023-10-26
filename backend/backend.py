@@ -1,8 +1,9 @@
 from flask import Flask, request
 from flask_cors import CORS
-
+from wer
 import joblib
 import os
+import csv
 
 dt = joblib.load("./static/dt.joblib")
 
@@ -43,7 +44,11 @@ def predict_file():
     files = request.files["archivo"]
     filename = secure_filename(file.filename)
     # file.save(f"./static/{filename}")           # Manera poco segura de generar el archivo
-    file.save(os.path.join(os.getcwd(), "static", filename))    # Manera segura
+    #file.save(os.path.join(os.getcwd(), "static", filename))    # Manera segura
+    path = os.path.join(os.getcwd(), "static", filename)
+    file.save(path)
+    with open(path, "r") as f:
+        reader = csv.DictReader(f)
 
 
 if __name =="__main__":
