@@ -49,14 +49,14 @@ def predict_file():
     file.save(path)
     with open(path, "r") as f:
         reader = csv.reader(f)
-        X = []
-        for row in reader:
+        # X = []
+        # for row in reader:
             #X.append([float(row[0], float(row[1], float(row[2])))])
-            X = [[float(row[0]), float(row[1]), float(row[2])] for row in reader]
-            y_pred = dt.predict(x)
-            return jsonify({
-                "result": [{"key": f"{k}",
-                            "result": f"{v}"} for k, v in enumerate (y_pred)]
+        X = [[float(row[0]), float(row[1]), float(row[2])] for row in reader]
+        y_pred = dt.predict(x)
+        return jsonify({
+            "result": [{"key": f"{k}",
+                        "result": f"{v}"} for k, v in enumerate (y_pred)]
             })
 
 if __name =="__main__":
