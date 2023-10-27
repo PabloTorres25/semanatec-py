@@ -63,6 +63,6 @@ def predict_file():
                         "result": f"{v}"} for k, v in enumerate (y_pred)]
             })
 
-if __name =="__main__":
+if __name == '__main__':    # Esta linea hace que todo lo que este debajo, se ejecute cuando se llama al archivo desde aqui, si se mandara a llamar desde otro lado, no correra lo que este debajo de esta linea
     app.run (host="0.0.0.0", debug =False, port=8081)
 
