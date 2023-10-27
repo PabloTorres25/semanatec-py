@@ -5,8 +5,10 @@ import joblib
 import os
 import csv
 
+# Cargar el modulo
 dt = joblib.load("./static/dt.joblib")
 
+# Generar el servidor (Back-end)
 app = Flask(__name__)
 CORS(app)
 
@@ -14,6 +16,7 @@ CORS(app)
 def inicio():
     return "Hola mundo"
 
+# Envio de datos a través de JSON 
 @app.route("/predict_json", methods=["POST"])
 def predict_json():
     data = request.json
